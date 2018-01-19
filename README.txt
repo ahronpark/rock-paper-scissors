@@ -6,4 +6,5 @@ v1: 1/17/18
 v2: 1/18/18
  More streamlined than the first one and actually works. Done this by associating the integer values from the generator to string values. Then by comparing the two string, the player wins, loses or ties.
 v3: 
- will add a prompt to enter the play thru the browser and a scoreboard.
+ Added a prompt and a method to add a point for the victor.
+ Need to implement a local storage to keep score and a method to show the prompt again.

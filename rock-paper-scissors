@@ -3,33 +3,48 @@
 <meta charset="UTF-8"> 
 <!--1=rock 2=paper 3=scissors -->
 <script>
-function computerPlay(min,max){ 
-  return Math.floor(Math.random()*(max-min+1))+min;
-}
-function playRound(playerSelection, computerSelection) {
+function game() {
   
-  if (computerSelection == 1){
-    comp = "rock"
-    }else if (computerSelection == 2){
-    comp = "paper"
-    }else{
-    comp = "scissors"
-    }
-  let humPlay = playerSelection.toLowerCase();
-  return ("You played " + humPlay + " computer played " + comp + "! " +comparePlay());
+  function computerPlay(min,max){ 
+    return Math.floor(Math.random()*(max-min+1))+min;
+  }
+  function playRound(playerSelection, computerSelection) {
+    
+    if (computerSelection == 1){
+      comp = "rock"
+      }else if (computerSelection == 2){
+      comp = "paper"
+      }else{
+      comp = "scissors"
+      }
+ 
+    let humPlay = playerSelection.toLowerCase();
+      if (humPlay == "rock" || humPlay == "paper" || humPlay == "scissors"){
+      return ("You played " + humPlay + " and computer played " + comp + "! " + comparePlay());
+      }else{
+      return ("Try again!")
+      }
+    
     function comparePlay() {
       if ((humPlay == "rock" && comp == "paper") || (humPlay == "paper" && comp == "scissors") || (humPlay == "scissors" && comp == "rock")) {
-      return ("You lose!");
+      vc = ++vc
+      return ("You lost this round!");
       } else if ((humPlay == "rock" && comp == "scissors") || (humPlay == "paper" && comp == "rock") || (humPlay == "scissors" && comp == "paper")) {
-      return ("You win!");
+      v = ++v
+      return ("You won this round!");
       } else {
-      return ("You tied!");
+      return ("You tied this round!");
       }
-   } 
-}
+    } 
+ 
+  }
+  const playerSelection = window.prompt('Rock, Paper or Scissors?');
+  const computerSelection = computerPlay(1,3);
 
-const playerSelection = 'SCiSSORS'
-const computerSelection = computerPlay(1,3)
-console.log(playRound(playerSelection, computerSelection))
+  var v=0;
+  var vc=0;
+  alert(playRound(playerSelection, computerSelection) +" "+ v +" "+ vc);
+}
+console.log(game());
 </script>
 </html>
